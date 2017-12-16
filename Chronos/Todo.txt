@@ -1,0 +1,15 @@
+Bianca:
+o Info-Fenster zum Aufklappen (mit Controls)
+o Start-Image und Icons
+o Licht-Falloff
+o Collider unterhalb Stufen
+o Splash and Ending Screen (Splash only im Build)
+o Disable all sounds (wenn dann alles)
+o Piston: lock movement while on piston (works with new controls)
+o Pistonmesh einbauen und Prefab erzeugen
+o Stiege in Lv02 einbauen
+
+Lukas:
+
+Level03 (Pistons und Würfel)
+
