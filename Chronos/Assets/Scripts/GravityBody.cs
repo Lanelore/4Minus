@@ -9,16 +9,13 @@ public class GravityBody : MonoBehaviour {
 
 	GravityAttractor targetGravity;
 	bool planetGravity = false;
-	GameObject[] planets;
-	GameObject targetPlanet;
+	public GameObject targetPlanet;
 	
 	void Awake () {
 		gravityUp = transform.up;
 		
-		planets = GameObject.FindGameObjectsWithTag ("Planet");
-		if (planets.Length > 0) {
+		if (targetPlanet) {
 			planetGravity = true;
-			targetPlanet = planets [0];
 
 			// Disable rigidbody gravity and rotation as this is simulated in GravityAttractor script
 			GetComponent<Rigidbody> ().useGravity = false;
@@ -29,7 +26,7 @@ public class GravityBody : MonoBehaviour {
 	}
 	
 	//FixedUpdate gets called at a regular interval independent from the framerate
-	void FixedUpdate () {
+	void Update () {
 		if (planetGravity) {
 			targetGravity = targetPlanet.GetComponent<GravityAttractor> ();
 
