@@ -8,7 +8,7 @@ public class RuebeAnimation : MonoBehaviour {
 
 	void Awake(){
 		animator = this.GetComponentInChildren<Animator> ();
-		animator.speed = UnityEngine.Random.Range (0.9f, 1.1f);
+		animator.speed = UnityEngine.Random.Range (1.5f, 2f);
 	}
 
 	// Use this for initialization
