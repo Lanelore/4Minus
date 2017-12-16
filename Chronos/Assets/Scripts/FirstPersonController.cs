@@ -113,6 +113,7 @@ public class FirstPersonController : MonoBehaviour {
                 this.jump.Play();
 
                 jumpCD = 0.3F;
+
 			}
 		}
         */
