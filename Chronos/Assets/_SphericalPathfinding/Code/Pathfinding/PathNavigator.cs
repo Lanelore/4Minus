@@ -71,6 +71,11 @@ public class PathNavigator : MonoBehaviour
 	
 	public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
 	{
+        if (!this || !this.gameObject)
+        {
+            return;
+        }
+
 		if (pathSuccessful && newPath.Length > 0)
 		{
 			path = newPath;
