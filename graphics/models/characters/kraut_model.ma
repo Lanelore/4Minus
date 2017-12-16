@@ -1,6 +1,6 @@
 //Maya ASCII 2017ff04 scene
 //Name: kraut_model.ma
-//Last modified: Sat, Dec 16, 2017 06:49:54 PM
+//Last modified: Sat, Dec 16, 2017 07:08:07 PM
 //Codeset: 1252
 requires maya "2017ff04";
 currentUnit -l centimeter -a degree -t film;
@@ -13,8 +13,8 @@ fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "BEC9B319-44EF-58D3-67F5-118368EC6373";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 233.95751277257128 217.57287114136622 -267.84289121786924 ;
-	setAttr ".r" -type "double3" -28.53835272750344 -583.79999999988263 0 ;
+	setAttr ".t" -type "double3" -41.509571739058728 -95.611954594744304 362.46993201083677 ;
+	setAttr ".r" -type "double3" 17.061647272484095 -1085.0000000000427 4.9885998181947651e-016 ;
 	setAttr ".rp" -type "double3" 9.0949470177292824e-013 -7.3896444519050419e-013 -1.8189894035458565e-012 ;
 	setAttr ".rpt" -type "double3" 4.1962343750835728e-013 -7.7923056311211085e-013 
 		1.0376441516761573e-012 ;
