@@ -19,9 +19,13 @@ public class CrystalBehaviour : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+        print("Detect Collider");
+
         if (other.gameObject.tag == "Enemy")
         {
-
+            print("Detect Enemy");
+            Destroy(gameObject);
+            // spawn explosion
         }
     }
 
@@ -35,7 +39,5 @@ public class CrystalBehaviour : MonoBehaviour {
             currentTime += Time.deltaTime;
             yield return null;
         } while (currentTime <= time);
-
-     //   Destroy(gameObject);
     }
 }
