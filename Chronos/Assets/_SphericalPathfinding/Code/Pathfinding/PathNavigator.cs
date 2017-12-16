@@ -132,8 +132,6 @@ public class PathNavigator : MonoBehaviour
 		return planetBody.GroundPosition(point);
 	}
 
-
-
 	// *************************
 	//          DEBUG
 	// *************************
@@ -158,6 +156,4 @@ public class PathNavigator : MonoBehaviour
 			}
 		}
 	}
-
-
 }

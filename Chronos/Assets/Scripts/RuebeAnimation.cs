@@ -20,4 +20,9 @@ public class RuebeAnimation : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void Die()
+    {
+        Destroy(this.gameObject);
+    }
 }
