@@ -29,7 +29,7 @@ public class GravityBody : MonoBehaviour {
 	}
 	
 	//FixedUpdate gets called at a regular interval independent from the framerate
-	void FixedUpdate () {
+	void Update () {
 		if (planetGravity) {
 			targetGravity = targetPlanet.GetComponent<GravityAttractor> ();
 
