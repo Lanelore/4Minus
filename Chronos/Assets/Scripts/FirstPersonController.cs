@@ -92,7 +92,7 @@ public class FirstPersonController : MonoBehaviour {
 		transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime);
 		verticalLookRotation += Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
 		verticalLookRotation = Mathf.Clamp(verticalLookRotation,-60,80);
-		cameraTransform.localEulerAngles = Vector3.left * verticalLookRotation;
+	//	cameraTransform.localEulerAngles = Vector3.left * verticalLookRotation;
 		
 		// Calculate movement:
 		float inputX = Input.GetAxisRaw("Horizontal");
@@ -104,6 +104,7 @@ public class FirstPersonController : MonoBehaviour {
 		moveAmount = Vector3.SmoothDamp (moveAmount, targetMoveAmount, ref smoothMoveVelocity, 0.15f * damping); //ref allows to modify a global variable
 		
 		// Jump
+        /*
 		if (Input.GetButtonDown("Jump") && jumpCD <= 0) {
 			if (IsGrounded()) {
 				GetComponent<Rigidbody>().AddForce(transform.up * jumpForce);
@@ -114,8 +115,10 @@ public class FirstPersonController : MonoBehaviour {
                 jumpCD = 0.3F;
 			}
 		}
+        */
 
 		if (IsGrounded () && ((Input.GetAxisRaw("Vertical")!= 0) || Input.GetAxisRaw("Horizontal")!= 0)) {
+            /*
 			if (upwards) {
 				cameraTransform.localPosition += new Vector3 (0, Time.deltaTime/duration, 0);
 				float yPos = cameraTransform.localPosition.y;
@@ -129,6 +132,7 @@ public class FirstPersonController : MonoBehaviour {
 					upwards = true;
 				}
 			}
+            */
 		}
 
 		if (jumpCD > 0) {
