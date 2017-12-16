@@ -19,9 +19,19 @@ public class CrystalBehaviour : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        print("Detect Collider");
+        CheckEnemy(other);
+    }
 
-        if (other.gameObject.tag == "Enemy")
+    void OnTriggerStay(Collider other)
+    {
+        CheckEnemy(other);
+    }
+    
+    public void CheckEnemy(Collider other)
+    {
+        print("Detect Collider " + other.tag);
+
+        if (other.tag == "Enemy")
         {
             print("Detect Enemy");
             Destroy(gameObject);
