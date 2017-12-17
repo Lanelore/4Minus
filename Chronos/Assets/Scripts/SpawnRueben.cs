@@ -7,7 +7,7 @@ public class SpawnRueben : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        StartCoroutine(WaitTime(Random.Range(5.0f, 10.0f)));
+        StartCoroutine(WaitTime(Random.Range(2.0f, 5.0f)));
     }
 	
 	// Update is called once per frame
@@ -30,6 +30,6 @@ public class SpawnRueben : MonoBehaviour {
         GameObject createdDummy = GameObject.Instantiate(ruebe, this.transform.position, this.transform.rotation) as GameObject;
         
         // spawn something
-        StartCoroutine(WaitTime(Random.Range(5.0f, 10.0f)));
+        StartCoroutine(WaitTime(Random.Range(2.0f, 5.0f)));
     }
 }
