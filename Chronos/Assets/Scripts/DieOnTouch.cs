@@ -58,7 +58,7 @@ public class DieOnTouch : MonoBehaviour {
 
         // Do something after waiting a specific time 
         
-        scoreText.text = "Zeit: " + roundedTime + "\nKills: " + RuebeAnimation.deadRueben;
+        scoreText.text = "Zeit: " + roundedTime + "s\nKills: " + RuebeAnimation.deadRueben;
 
         ui.SetActive(true);
     }
