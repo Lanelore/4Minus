@@ -13,7 +13,7 @@ public class CrystalBehaviour : MonoBehaviour {
         originalScale = new Vector3(0.01f, 0.01f, 0.01f);
         destinationScale = new Vector3(0.1f, 0.1f, 0.1f);
         player = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine(ScaleOverTime(0.1f));
+        StartCoroutine(ScaleOverTime(0.5f));
     }
 
     private void OnTriggerEnter(Collider other)
