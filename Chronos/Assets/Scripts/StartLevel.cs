@@ -17,6 +17,9 @@ public class StartLevel : MonoBehaviour {
         if(Input.GetButtonDown("Action"))
             Application.LoadLevel(1);
 
+        if (Input.GetKey("escape"))
+            Application.Quit();
+
     }
 
     public void LoadLevel()

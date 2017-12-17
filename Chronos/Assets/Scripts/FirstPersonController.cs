@@ -44,8 +44,11 @@ public class FirstPersonController : MonoBehaviour {
     }
 
 	void Update() {
-		// play the walking sound if player walked enough
-		if (Input.GetAxisRaw("Vertical")!= 0 || Input.GetAxisRaw("Horizontal")!= 0) {
+        if (Input.GetKey("escape"))
+            Application.Quit();
+
+        // play the walking sound if player walked enough
+        if (Input.GetAxisRaw("Vertical")!= 0 || Input.GetAxisRaw("Horizontal")!= 0) {
 			if (walk.isPlaying == false) {
 				this.walk.Play ();
 			}
