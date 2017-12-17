@@ -21,6 +21,14 @@ public class AStarPathfinding : MonoBehaviour
 		sphericalGrid = GetComponent<SphericalGrid>();
 	}
 
+    void Update()
+    {
+        if (!DieOnTouch.gameRunning)
+        {
+            StopAllCoroutines();
+        }
+    }
+
 	#endregion
 
 

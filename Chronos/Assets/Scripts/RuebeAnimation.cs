@@ -6,10 +6,8 @@ public class RuebeAnimation : MonoBehaviour {
 	Animator animator;
     Vector3 originalScale;
     Vector3 destinationScale;
-    public static bool gameRunning = true;
-
-    public static int deadRueben = 0;
-
+    public bool counted = false;
+        
     void Awake(){
 		animator = this.GetComponentInChildren<Animator> ();
 		animator.speed = UnityEngine.Random.Range (1.5f, 2f);
@@ -28,11 +26,6 @@ public class RuebeAnimation : MonoBehaviour {
         {
             this.GetComponent<Collider>().enabled = false;
             this.enabled = false;
-            if (gameRunning)
-            {
-                deadRueben += 1;
-            }
-            print("deadRueben " + RuebeAnimation.deadRueben);
             StartCoroutine(ScaleOverTime(0.1f));
         }
     }

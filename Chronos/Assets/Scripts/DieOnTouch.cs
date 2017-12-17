@@ -11,7 +11,7 @@ public class DieOnTouch : MonoBehaviour {
     public GameObject expolsion;
     public GameObject ui;
     float levelTime = 0;
-    bool gameRunning = true;
+    public static bool gameRunning = true;
     double roundedTime = 0;
     public Text scoreText;
 
@@ -32,13 +32,11 @@ public class DieOnTouch : MonoBehaviour {
 
         Collider[] c = Physics.OverlapSphere(transform.position, radius, mask);
 
-        if( c.Length > 0 && alive)
+        if (c.Length > 0 && alive)
         {
             alive = false;
             geo.SetActive(false);
             gameRunning = false;
-            RuebeAnimation.gameRunning = false;
-            SpawnRueben.gameRunning = false;
             roundedTime = System.Math.Round(levelTime, 1);
             this.GetComponent<FirstPersonController>().enabled = false;
             StartCoroutine(WaitTime(1));           
@@ -59,7 +57,7 @@ public class DieOnTouch : MonoBehaviour {
 
         // Do something after waiting a specific time 
         
-        scoreText.text = "Zeit: " + roundedTime + "s\nKills: " + RuebeAnimation.deadRueben;
+        scoreText.text = "Zeit: " + roundedTime + "s\nKills: " + CrystalBehaviour.totalKilledrueben;
 
         ui.SetActive(true);
     }

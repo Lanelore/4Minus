@@ -9,6 +9,9 @@ public class CrystalBehaviour : MonoBehaviour {
     public float triggerRange;
     public float explosionRange;
     public LayerMask enemies;
+    GameObject player;
+    public static int totalKilledrueben = 0;
+    bool triggered = false;
 
     // Use this for initialization
     void Start () {
@@ -16,13 +19,20 @@ public class CrystalBehaviour : MonoBehaviour {
         destinationScale = new Vector3(0.4f, 0.4f, 0.4f);
 
         StartCoroutine(ScaleOverTime(0.5f));
+        player = GameObject.FindGameObjectWithTag("Player");
+        totalKilledrueben = 0;
     }
 
     public void Update()
     {
-        Collider[] collider = Physics.OverlapSphere(transform.position, triggerRange, enemies);
+        if (DieOnTouch.gameRunning == false)
+        {
+            return;
+        }
 
-        if(collider.Length > 0)
+        Collider[] collider = Physics.OverlapSphere(transform.position, triggerRange, enemies);
+        int killedRueben = 0;
+        if (collider.Length > 0)
         {
             collider = Physics.OverlapSphere(transform.position, explosionRange, enemies);
             Destroy(GameObject.Instantiate(explosion, this.transform.position, this.transform.rotation) as GameObject,2);
@@ -30,6 +40,17 @@ public class CrystalBehaviour : MonoBehaviour {
             foreach (Collider c in collider)
             {
                 c.gameObject.GetComponent<RuebeAnimation>().Die();
+                if (c.gameObject.GetComponent<RuebeAnimation>() && c.gameObject.GetComponent<RuebeAnimation>().counted == false)
+                {
+                    c.gameObject.GetComponent<RuebeAnimation>().counted = true;
+                    killedRueben += 1;
+                }
+            }
+
+            if (killedRueben > 0)
+            {
+                totalKilledrueben += killedRueben;
+                player.GetComponent<CrystalSystem>().killText.GetComponent<KillText>().ShowKill(killedRueben);
             }
 
             Destroy(this.gameObject);

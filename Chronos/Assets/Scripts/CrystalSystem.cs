@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CrystalSystem : MonoBehaviour {
     int crystalCount = 10;
@@ -8,6 +9,7 @@ public class CrystalSystem : MonoBehaviour {
     GameObject player;
     public Vector3 planetCenter;
     float spawnCD = 0;
+    public GameObject killText;
 
     public UnityEngine.UI.Text counter;
 
@@ -39,7 +41,7 @@ public class CrystalSystem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Action"))
+        if (Input.GetButtonDown("Action") && DieOnTouch.gameRunning)
         {
             UseCrystal();
         }

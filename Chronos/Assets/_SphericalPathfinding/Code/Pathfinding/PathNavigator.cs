@@ -35,7 +35,7 @@ public class PathNavigator : MonoBehaviour
         // don't forget to delete target if it leaves the trigger
         // target = 
         
-        StartCoroutine(WaitRandomTime(Random.Range(1.0f, 2.5f)));
+        StartCoroutine(WaitRandomTime(0));
 
         sphericalGrid = GameObject.Find("PathFinding").GetComponent<SphericalGrid>();
     }
@@ -46,7 +46,7 @@ public class PathNavigator : MonoBehaviour
         
         if (distanceToPlayer > targetThreshold)
         {
-            RandomTargetPos();
+            targetPosition = Vector3.zero;
         }
         else
         {
@@ -56,6 +56,12 @@ public class PathNavigator : MonoBehaviour
 
     void Update()
 	{
+        if (!DieOnTouch.gameRunning)
+        {
+            StopAllCoroutines();
+            return;
+        }
+
 		// if the target position has moved
 		if(target != null)
 		{
@@ -77,7 +83,7 @@ public class PathNavigator : MonoBehaviour
             {
                 targetPos = target.position;
             }
-            else if (targetPosition != null)
+            else if (targetPosition != Vector3.zero)
             {
                 targetPos = targetPosition;
             }
@@ -209,6 +215,6 @@ public class PathNavigator : MonoBehaviour
         TargetPlayerOnce();
 
         // spawn something
-        StartCoroutine(WaitRandomTime(Random.Range(1.0f, 2.5f)));
+        StartCoroutine(WaitRandomTime(Random.Range(1.0f, 4f)));
     }
 }

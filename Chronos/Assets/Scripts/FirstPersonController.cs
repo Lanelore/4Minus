@@ -25,7 +25,7 @@ public class FirstPersonController : MonoBehaviour {
 		Cursor.lockState = CursorLockMode.Locked;
         var audioSources = GetComponents<AudioSource>();
         this.walk = audioSources[0];
-        StartCoroutine(WaitTime(0.5f));
+       // StartCoroutine(WaitTime(0.5f));
     }
 
     void CheckNavigatorDistance()
@@ -98,6 +98,6 @@ public class FirstPersonController : MonoBehaviour {
         CheckNavigatorDistance();
 
         // spawn something
-        StartCoroutine(WaitTime(0.5f));
+        StartCoroutine(WaitTime(1));
     }
 }
