@@ -5,9 +5,12 @@ using System.Collections;
 public class PathNavigator : MonoBehaviour
 {
 	public SphericalGrid sphericalGrid;
+    public GameObject player;
 	public Transform target;
+    Vector3 targetPosition;
 
-	Vector3 prevTargetPos;
+
+    Vector3 prevTargetPos;
 
 	public float moveSpeed = 2;
 	public float lookSpeed = 2;
@@ -27,13 +30,27 @@ public class PathNavigator : MonoBehaviour
 
 	void Awake()
 	{
-		planetBody = GetComponent<PlanetBody>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        planetBody = GetComponent<PlanetBody>();
 
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        targetPosition = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+        // only set target if the ruebe is near the player (trigger contains player)
+        // don't forget to delete target if it leaves the trigger
+        // target = 
+
+        print("Start Courout");
+        StartCoroutine(WaitTime(3.0f));
+
         sphericalGrid = GameObject.Find("PathFinding").GetComponent<SphericalGrid>();
     }
 
-	void Update()
+    void TargetPlayerOnce()
+    {
+        print("Target Player Now");
+        targetPosition = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+    }
+
+    void Update()
 	{
 		// if the target position has moved
 		if(target != null)
@@ -52,8 +69,15 @@ public class PathNavigator : MonoBehaviour
 		if(!travelling) // if the navigator has finished travelling
 		{
 			Vector3 targetPos = Vector3.zero;
-			if(target != null) targetPos = target.position;
-			else targetPos = RandomTargetPos();
+            if (target != null)
+            {
+                targetPos = target.position;
+            }
+            else if (targetPosition != null)
+            {
+                targetPos = targetPosition;
+            }
+            else targetPos = RandomTargetPos();
 
 			// check the distance to its target position, if it's far away start navigating again
 			float dist = sphericalGrid.GetSphericalDistance(transform.position, targetPos);
@@ -164,4 +188,27 @@ public class PathNavigator : MonoBehaviour
 			}
 		}
 	}
+
+    IEnumerator WaitTime(float time)
+    {
+        float currentTime = 0.0f;
+
+
+        print("time " + currentTime);
+
+        do
+        {
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+        while (currentTime <= time);
+
+        // Do something after waiting a specific time
+
+        print("targetPlayer");
+        TargetPlayerOnce();
+
+        // spawn something
+        StartCoroutine(WaitTime(3));
+    }
 }
