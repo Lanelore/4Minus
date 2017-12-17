@@ -7,7 +7,7 @@ public class SpawnRueben : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        StartCoroutine(WaitTime(0.1f));
+        StartCoroutine(WaitTime(Random.Range(5.0f, 10.0f)));
     }
 	
 	// Update is called once per frame
@@ -18,10 +18,7 @@ public class SpawnRueben : MonoBehaviour {
     IEnumerator WaitTime(float time)
     {
         float currentTime = 0.0f;
-
-
-        print("time " + currentTime);
-
+        
         do
         {
             currentTime += Time.deltaTime;
@@ -30,10 +27,9 @@ public class SpawnRueben : MonoBehaviour {
         while (currentTime <= time);
 
         // Do something after waiting a specific time
-        print("spawn ruebe");
         GameObject createdDummy = GameObject.Instantiate(ruebe, this.transform.position, this.transform.rotation) as GameObject;
         
         // spawn something
-        StartCoroutine(WaitTime(3));
+        StartCoroutine(WaitTime(Random.Range(5.0f, 10.0f)));
     }
 }
