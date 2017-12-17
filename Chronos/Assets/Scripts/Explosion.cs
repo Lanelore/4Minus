@@ -9,11 +9,6 @@ public class Explosion : MonoBehaviour {
         Destroy(this, 0.5f);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     private void OnTriggerEnter(Collider other)
     {
         Explode(other);

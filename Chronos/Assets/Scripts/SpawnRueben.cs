@@ -10,11 +10,6 @@ public class SpawnRueben : MonoBehaviour {
         StartCoroutine(WaitTime(Random.Range(2.0f, 5.0f)));
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     IEnumerator WaitTime(float time)
     {
         float currentTime = 0.0f;
