@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SpawnRueben : MonoBehaviour {
     public GameObject ruebe;
+    public static bool gameRunning = true;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         StartCoroutine(WaitTime(Random.Range(2.0f, 5.0f)));
     }
 	
@@ -23,8 +24,11 @@ public class SpawnRueben : MonoBehaviour {
 
         // Do something after waiting a specific time
         GameObject createdDummy = GameObject.Instantiate(ruebe, this.transform.position, this.transform.rotation) as GameObject;
-        
-        // spawn something
-        StartCoroutine(WaitTime(Random.Range(2.0f, 5.0f)));
+
+        if (gameRunning)
+        {
+            // spawn something
+            StartCoroutine(WaitTime(Random.Range(2.0f, 5.0f)));
+        }
     }
 }

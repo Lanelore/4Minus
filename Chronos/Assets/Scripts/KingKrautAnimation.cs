@@ -12,11 +12,13 @@ public class KingKrautAnimation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float h = Input.GetAxis("Horizontal");
-        float f = Input.GetAxis("Vertical");
+        if (animator.gameObject.activeSelf)
+        {
+            float h = Input.GetAxis("Horizontal");
+            float f = Input.GetAxis("Vertical");
 
-        float speed = new Vector3(h, 0, f).magnitude;
-        animator.SetFloat("speed",speed);
-
+            float speed = new Vector3(h, 0, f).magnitude;
+            animator.SetFloat("speed", speed);
+        }
 	}
 }

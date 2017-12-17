@@ -12,6 +12,7 @@ public class PathNavigator : MonoBehaviour
 
 	public float moveSpeed = 2;
 	public float lookSpeed = 2;
+    public float targetThreshold = 6;
 
 	Vector3[] path;
 	int targetIndex;
@@ -41,7 +42,16 @@ public class PathNavigator : MonoBehaviour
 
     public void TargetPlayerOnce()
     {
-        targetPosition = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+        float distanceToPlayer = Vector3.Distance(player.transform.position, this.transform.position);
+        
+        if (distanceToPlayer > targetThreshold)
+        {
+            RandomTargetPos();
+        }
+        else
+        {
+            targetPosition = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+        }
     }
 
     void Update()

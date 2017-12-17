@@ -30,7 +30,7 @@ public class FirstPersonController : MonoBehaviour {
 
     void CheckNavigatorDistance()
     {
-        Collider[] collider = Physics.OverlapSphere(transform.position, triggerRange, enemies);
+        Collider[] collider = Physics.OverlapSphere(this.transform.position, triggerRange, enemies);
 
         if (collider.Length > 0)
         {
@@ -50,10 +50,10 @@ public class FirstPersonController : MonoBehaviour {
         // play the walking sound if player walked enough
         if (Input.GetAxisRaw("Vertical")!= 0 || Input.GetAxisRaw("Horizontal")!= 0) {
 			if (walk.isPlaying == false) {
-				this.walk.Play ();
+				//this.walk.Play ();
 			}
 		} else {
-			this.walk.Stop ();
+			//this.walk.Stop ();
 		}
 
         // set dampig dependend if grounded or not
