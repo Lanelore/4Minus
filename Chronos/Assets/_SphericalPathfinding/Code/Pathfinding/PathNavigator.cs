@@ -71,6 +71,11 @@ public class PathNavigator : MonoBehaviour
 	
 	public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
 	{
+        if (!this || !this.gameObject)
+        {
+            return;
+        }
+
 		if (pathSuccessful && newPath.Length > 0)
 		{
 			path = newPath;
@@ -132,8 +137,6 @@ public class PathNavigator : MonoBehaviour
 		return planetBody.GroundPosition(point);
 	}
 
-
-
 	// *************************
 	//          DEBUG
 	// *************************
@@ -158,6 +161,4 @@ public class PathNavigator : MonoBehaviour
 			}
 		}
 	}
-
-
 }

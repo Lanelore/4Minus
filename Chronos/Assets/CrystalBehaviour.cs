@@ -5,24 +5,23 @@ using UnityEngine;
 public class CrystalBehaviour : MonoBehaviour {
     Vector3 originalScale;
     Vector3 destinationScale;
+    public GameObject explosion;
+    GameObject player;
 
     // Use this for initialization
     void Start () {
         originalScale = new Vector3(0.01f, 0.01f, 0.01f);
         destinationScale = new Vector3(0.1f, 0.1f, 0.1f);
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        StartCoroutine(ScaleOverTime(1));
+        player = GameObject.FindGameObjectWithTag("Player");
+        StartCoroutine(ScaleOverTime(0.5f));
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         CheckEnemy(other);
     }
 
-    void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         CheckEnemy(other);
     }
@@ -34,8 +33,9 @@ public class CrystalBehaviour : MonoBehaviour {
         if (other.tag == "Enemy")
         {
             print("Detect Enemy");
-            Destroy(gameObject);
             // spawn explosion
+            GameObject createdDummy = GameObject.Instantiate(explosion, this.transform.position, this.transform.rotation) as GameObject;
+            Destroy(gameObject);
         }
     }
 

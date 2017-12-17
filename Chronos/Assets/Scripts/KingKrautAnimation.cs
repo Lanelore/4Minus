@@ -16,9 +16,6 @@ public class KingKrautAnimation : MonoBehaviour {
         float f = Input.GetAxis("Vertical");
 
         float speed = new Vector3(h, 0, f).magnitude;
-
-        Debug.Log(speed);
-
         animator.SetFloat("speed",speed);
 
 	}

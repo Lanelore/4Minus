@@ -26,7 +26,8 @@ public class CrystalSystem : MonoBehaviour {
             spawnCD = 0.3f;
             crystalCount -= 1;
             Vector3 dir = (planetCenter - player.transform.position).normalized;
-            Vector3 spawnPos = player.transform.position + dir * (player.transform.localScale.x * 0.3f);
+            Vector3 spawnPos = player.transform.position + this.transform.up * (player.transform.localScale.x * -0.3f);
+            spawnPos = spawnPos + this.transform.forward * (player.transform.localScale.x * -1);
             GameObject createdDummy = GameObject.Instantiate(crystal, spawnPos, player.transform.rotation) as GameObject;
         }
     }
