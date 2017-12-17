@@ -9,14 +9,18 @@ public class CrystalSystem : MonoBehaviour {
     public Vector3 planetCenter;
     float spawnCD = 0;
 
+    public UnityEngine.UI.Text counter;
+
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
+        counter.text = crystalCount.ToString();
     }
 
     public void CollectCrystal()
     {
         crystalCount += 1;
+        counter.text = crystalCount.ToString();
     }
 
     void UseCrystal()
@@ -29,6 +33,7 @@ public class CrystalSystem : MonoBehaviour {
             Vector3 spawnPos = player.transform.position + this.transform.up * (player.transform.localScale.x * -0.3f);
             spawnPos = spawnPos + this.transform.forward * (player.transform.localScale.x * -1);
             GameObject createdDummy = GameObject.Instantiate(crystal, spawnPos, player.transform.rotation) as GameObject;
+            counter.text = crystalCount.ToString();
         }
     }
 	
