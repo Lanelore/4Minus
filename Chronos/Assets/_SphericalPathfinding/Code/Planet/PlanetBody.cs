@@ -4,6 +4,7 @@ using System.Collections;
 public class PlanetBody : MonoBehaviour
 {
 	public Transform planetTransform = null;
+    public GameObject environment;
 	public float planetRadius = 5f;
 
 
@@ -13,6 +14,9 @@ public class PlanetBody : MonoBehaviour
 	void Start()
 	{
 		transform.position = GroundPosition(transform.position);
+
+        environment = GameObject.Find("_Environment");     
+        planetTransform = environment.transform.Find("Planet");        
 	}
 
 	void Update()
@@ -30,7 +34,7 @@ public class PlanetBody : MonoBehaviour
 
 	public Quaternion RotateToPlanet()
 	{
-		if(planetTransform != null)
+		if (planetTransform != null)
 		{
 			// find what way is up based on the body's current position
 			Vector3 gravityUp = (planetTransform.position - this.transform.position).normalized;
@@ -85,6 +89,11 @@ public class PlanetBody : MonoBehaviour
 
 	public Vector3 GroundPosition(Vector3 currentPosition)
 	{
+        if (planetTransform == null)
+        {
+            return currentPosition;
+        }
+
 		Vector3 dir = (planetTransform.position - currentPosition).normalized;
 		Vector3 startRayPos = -dir * (planetRadius * 1.1f);
 		
