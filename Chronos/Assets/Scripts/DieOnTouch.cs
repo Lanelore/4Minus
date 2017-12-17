@@ -24,7 +24,7 @@ public class DieOnTouch : MonoBehaviour {
 
         if( c.Length > 0 && alive)
         {
-            Destroy(GameObject.Instantiate(expolsion, this.transform.position,transform.rotation) as GameObject, 2);
+             
 
 
             alive = false;
@@ -44,6 +44,7 @@ public class DieOnTouch : MonoBehaviour {
 
         do
         {
+            Destroy(GameObject.Instantiate(expolsion, this.transform.position, UnityEngine.Random.rotation) as GameObject, 2);
             currentTime += Time.deltaTime;
             yield return null;
         }
