@@ -5,7 +5,7 @@ using System.Collections;
 public class PathNavigator : MonoBehaviour
 {
 	public SphericalGrid sphericalGrid;
-    public GameObject player;
+    GameObject player;
 	public Transform target;
     Vector3 targetPosition;
 
@@ -24,8 +24,6 @@ public class PathNavigator : MonoBehaviour
 
 	public bool drawPath;
 
-
-
 	#region Unity
 
 	void Awake()
@@ -37,16 +35,14 @@ public class PathNavigator : MonoBehaviour
         // only set target if the ruebe is near the player (trigger contains player)
         // don't forget to delete target if it leaves the trigger
         // target = 
-
-        print("Start Courout");
-        StartCoroutine(WaitTime(3.0f));
+        
+        StartCoroutine(WaitRandomTime(Random.Range(1.0f, 2.5f)));
 
         sphericalGrid = GameObject.Find("PathFinding").GetComponent<SphericalGrid>();
     }
 
-    void TargetPlayerOnce()
+    public void TargetPlayerOnce()
     {
-        print("Target Player Now");
         targetPosition = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
     }
 
@@ -189,13 +185,10 @@ public class PathNavigator : MonoBehaviour
 		}
 	}
 
-    IEnumerator WaitTime(float time)
+    IEnumerator WaitRandomTime(float time)
     {
         float currentTime = 0.0f;
-
-
-        print("time " + currentTime);
-
+        
         do
         {
             currentTime += Time.deltaTime;
@@ -204,11 +197,10 @@ public class PathNavigator : MonoBehaviour
         while (currentTime <= time);
 
         // Do something after waiting a specific time
-
-        print("targetPlayer");
+        
         TargetPlayerOnce();
 
         // spawn something
-        StartCoroutine(WaitTime(3));
+        StartCoroutine(WaitRandomTime(Random.Range(1.0f, 2.5f)));
     }
 }
