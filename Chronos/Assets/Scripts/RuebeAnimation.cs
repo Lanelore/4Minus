@@ -36,6 +36,7 @@ public class RuebeAnimation : MonoBehaviour {
         }
         while (currentTime <= time);
 
+        print("Destroy Ruebe");
         Destroy(this.gameObject);
     }
 }

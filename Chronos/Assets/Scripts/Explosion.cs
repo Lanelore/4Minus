@@ -28,7 +28,6 @@ public class Explosion : MonoBehaviour {
     {
         if (other.tag == "Enemy")
         {
-            print("Ruebe Explode");
             other.gameObject.GetComponent<RuebeAnimation>().Die();
         }
     }

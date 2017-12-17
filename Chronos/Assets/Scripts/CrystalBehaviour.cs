@@ -35,7 +35,8 @@ public class CrystalBehaviour : MonoBehaviour {
             print("Detect Enemy");
             // spawn explosion
             GameObject createdDummy = GameObject.Instantiate(explosion, this.transform.position, this.transform.rotation) as GameObject;
-            Destroy(gameObject);
+            Destroy(createdDummy, 2);
+            Destroy(this.gameObject);
         }
     }
 
