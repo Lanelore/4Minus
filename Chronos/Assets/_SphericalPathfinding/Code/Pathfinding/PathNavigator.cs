@@ -36,7 +36,7 @@ public class PathNavigator : MonoBehaviour
         // don't forget to delete target if it leaves the trigger
         // target = 
         
-        StartCoroutine(WaitRandomTime(Random.Range(2.0f, 5.0f)));
+        StartCoroutine(WaitRandomTime(Random.Range(1.0f, 2.5f)));
 
         sphericalGrid = GameObject.Find("PathFinding").GetComponent<SphericalGrid>();
     }
@@ -201,6 +201,6 @@ public class PathNavigator : MonoBehaviour
         TargetPlayerOnce();
 
         // spawn something
-        StartCoroutine(WaitRandomTime(Random.Range(2.0f, 5.0f)));
+        StartCoroutine(WaitRandomTime(Random.Range(1.0f, 2.5f)));
     }
 }

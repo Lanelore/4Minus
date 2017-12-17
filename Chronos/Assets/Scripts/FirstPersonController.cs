@@ -19,8 +19,6 @@ public class FirstPersonController : MonoBehaviour {
 	Vector3 moveAmount;
 	Vector3 smoothMoveVelocity;
 	float verticalLookRotation;
-
-
 	
 	void Start() { //Awake
 		Cursor.visible = false;
