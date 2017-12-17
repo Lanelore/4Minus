@@ -16,9 +16,7 @@ public class PlanetBody : MonoBehaviour
 		transform.position = GroundPosition(transform.position);
 
         environment = GameObject.Find("_Environment");     
-        planetTransform = environment.transform.Find("Planet");
-
-        print("planettransform " + planetTransform);
+        planetTransform = environment.transform.Find("Planet");        
 	}
 
 	void Update()
