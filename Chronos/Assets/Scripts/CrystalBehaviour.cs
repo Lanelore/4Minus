@@ -7,6 +7,9 @@ public class CrystalBehaviour : MonoBehaviour {
     Vector3 destinationScale;
     public GameObject explosion;
     GameObject player;
+    public float triggerRange;
+    public float explosionRange;
+    public LayerMask enemies;
 
     // Use this for initialization
     void Start () {
@@ -16,6 +19,26 @@ public class CrystalBehaviour : MonoBehaviour {
         StartCoroutine(ScaleOverTime(0.5f));
     }
 
+    public void Update()
+    {
+        Collider[] collider = Physics.OverlapSphere(transform.position, triggerRange, enemies);
+
+        if(collider.Length > 0)
+        {
+            collider = Physics.OverlapSphere(transform.position, explosionRange, enemies);
+            Destroy(GameObject.Instantiate(explosion, this.transform.position, this.transform.rotation) as GameObject,2);
+
+            foreach (Collider c in collider)
+            {
+                c.gameObject.GetComponent<RuebeAnimation>().Die();
+            }
+
+            Destroy(this.gameObject);
+        }
+        
+    }
+
+    /*
     private void OnTriggerEnter(Collider other)
     {
         CheckEnemy(other);
@@ -38,7 +61,7 @@ public class CrystalBehaviour : MonoBehaviour {
             Destroy(createdDummy, 2);
             Destroy(this.gameObject);
         }
-    }
+    }*/
 
     IEnumerator ScaleOverTime(float time)
     {
