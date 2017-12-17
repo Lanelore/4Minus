@@ -50,7 +50,7 @@ public class DieOnTouch : MonoBehaviour {
 
         do
         {
-            Destroy(GameObject.Instantiate(expolsion, this.transform.position, UnityEngine.Random.rotation) as GameObject, 2);
+            Destroy(GameObject.Instantiate(expolsion, this.transform.position, UnityEngine.Random.rotation) as GameObject);
             currentTime += Time.deltaTime;
             yield return null;
         }

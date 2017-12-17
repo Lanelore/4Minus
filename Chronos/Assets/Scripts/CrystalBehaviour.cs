@@ -13,7 +13,7 @@ public class CrystalBehaviour : MonoBehaviour {
     // Use this for initialization
     void Start () {
         originalScale = new Vector3(0.01f, 0.01f, 0.01f);
-        destinationScale = new Vector3(0.1f, 0.1f, 0.1f);
+        destinationScale = new Vector3(0.4f, 0.4f, 0.4f);
 
         StartCoroutine(ScaleOverTime(0.5f));
     }
