@@ -11,7 +11,6 @@ public class CrystalBehaviour : MonoBehaviour {
     public LayerMask enemies;
     GameObject player;
     public static int totalKilledrueben = 0;
-    bool triggered = false;
 
     // Use this for initialization
     void Start () {
