@@ -13,11 +13,7 @@ public class CrystalBehaviour : MonoBehaviour {
         originalScale = new Vector3(0.01f, 0.01f, 0.01f);
         destinationScale = new Vector3(0.1f, 0.1f, 0.1f);
         player = GameObject.FindGameObjectWithTag("Player");
-    }
-
-    // Update is called once per frame
-    void Update () {
-        StartCoroutine(ScaleOverTime(1));
+        StartCoroutine(ScaleOverTime(0.1f));
     }
 
     private void OnTriggerEnter(Collider other)
