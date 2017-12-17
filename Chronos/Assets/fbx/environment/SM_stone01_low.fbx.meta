@@ -1,23 +1,21 @@
 fileFormatVersion: 2
-guid: 0f792654b61273b45b8d433c57d83046
-timeCreated: 1513465213
+guid: 23e2b39a1085e8749b511dbdfed3fe39
+timeCreated: 1513470026
 licenseType: Pro
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Grid_cell.002
-    100002: //RootNode
-    400000: Grid_cell.002
-    400002: //RootNode
-    2300000: Grid_cell.002
-    3300000: Grid_cell.002
-    4300000: Grid_cell.002
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: SM_stone01_low
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: floorStones_mat
-    second: {fileID: 2100000, guid: 2b32c51b780cc4a40b7e39a74677faac, type: 2}
+      name: No Name
+    second: {fileID: 2100000, guid: 65f5c3aa41620da4ba4c0450b7ea37ca, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -47,7 +45,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.1
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
