@@ -19,18 +19,12 @@ public class FirstPersonController : MonoBehaviour {
 	Vector3 moveAmount;
 	Vector3 smoothMoveVelocity;
 	float verticalLookRotation;
-	Transform cameraTransform;
 
-	// find out if player is inactive for 30 seconds or more (to get back to the HUB)
-	private float inactiveSeconds = 0.0f;
-	private float maxInactiveSeconds = 50.0f;
-	private float lastMouseX = 0.0f;
-	private float lastMouseY = 0.0f;
+
 	
 	void Start() { //Awake
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
-		cameraTransform = Camera.main.transform;
         var audioSources = GetComponents<AudioSource>();
         this.walk = audioSources[0];
         StartCoroutine(WaitTime(0.5f));
@@ -42,7 +36,6 @@ public class FirstPersonController : MonoBehaviour {
 
         if (collider.Length > 0)
         {
-            print("Fast Updates for this pathfinder");
             collider = Physics.OverlapSphere(transform.position, triggerRange, enemies);
             
             foreach (Collider c in collider)
@@ -87,7 +80,6 @@ public class FirstPersonController : MonoBehaviour {
     {
         mouseSensitivityX = sensitivity;
         mouseSensitivityY = sensitivity;
-        string sensitivityString = sensitivity.ToString();
     }
 
     IEnumerator WaitTime(float time)

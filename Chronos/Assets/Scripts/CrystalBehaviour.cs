@@ -6,7 +6,6 @@ public class CrystalBehaviour : MonoBehaviour {
     Vector3 originalScale;
     Vector3 destinationScale;
     public GameObject explosion;
-    GameObject player;
     public float triggerRange;
     public float explosionRange;
     public LayerMask enemies;
@@ -15,8 +14,6 @@ public class CrystalBehaviour : MonoBehaviour {
     void Start () {
         originalScale = new Vector3(0.01f, 0.01f, 0.01f);
         destinationScale = new Vector3(0.1f, 0.1f, 0.1f);
-        player = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine(ScaleOverTime(0.5f));
     }
 
     public void Update()
