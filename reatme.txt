@@ -7,7 +7,7 @@ WASD:	movement
 E:	select and spawn crystals
 mouse:	camera movement
 
-Team: FinalFinalV2.0
+Team: Final_final_v02
 Markus Hadinger
 Matthias Patscheider
 Bianca Zankl
