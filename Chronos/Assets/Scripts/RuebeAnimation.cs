@@ -12,19 +12,12 @@ public class RuebeAnimation : MonoBehaviour {
 		animator.speed = UnityEngine.Random.Range (1.5f, 2f);
 	}
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         originalScale = this.transform.localScale;
         destinationScale = this.transform.localScale * 0.01f;//new Vector3(0.1f, 0.1f, 0.1f);
     }
-	
-	// Update is called once per frame
-	void Update () {
-		if (this.transform.localScale == destinationScale)
-        {
-           // Destroy(this.gameObject);
-        }
-	}
 
     public void Die()
     {
