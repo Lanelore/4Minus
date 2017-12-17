@@ -17,6 +17,7 @@ public class CrystalSystem : MonoBehaviour {
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         counter.text = crystalCount.ToString();
+        CrystalBehaviour.totalKilledRueben = 0;
     }
 
     public void CollectCrystal()

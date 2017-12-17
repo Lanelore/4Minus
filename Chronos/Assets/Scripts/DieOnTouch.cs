@@ -57,7 +57,7 @@ public class DieOnTouch : MonoBehaviour {
 
         // Do something after waiting a specific time 
         
-        scoreText.text = "Zeit: " + roundedTime + "s\nKills: " + CrystalBehaviour.totalKilledrueben;
+        scoreText.text = "Zeit: " + roundedTime + "s\nKills: " + CrystalBehaviour.totalKilledRueben;
 
         ui.SetActive(true);
     }

@@ -10,7 +10,7 @@ public class CrystalBehaviour : MonoBehaviour {
     public float explosionRange;
     public LayerMask enemies;
     GameObject player;
-    public static int totalKilledrueben = 0;
+    public static int totalKilledRueben = 0;
 
     // Use this for initialization
     void Start () {
@@ -19,7 +19,6 @@ public class CrystalBehaviour : MonoBehaviour {
 
         StartCoroutine(ScaleOverTime(0.5f));
         player = GameObject.FindGameObjectWithTag("Player");
-        totalKilledrueben = 0;
     }
 
     public void Update()
@@ -48,7 +47,8 @@ public class CrystalBehaviour : MonoBehaviour {
 
             if (killedRueben > 0)
             {
-                totalKilledrueben += killedRueben;
+                totalKilledRueben += killedRueben;
+                print("total kills " + totalKilledRueben + ", now " + killedRueben);
                 player.GetComponent<CrystalSystem>().killText.GetComponent<KillText>().ShowKill(killedRueben);
             }
 

@@ -215,6 +215,6 @@ public class PathNavigator : MonoBehaviour
         TargetPlayerOnce();
 
         // spawn something
-        StartCoroutine(WaitRandomTime(Random.Range(1.0f, 4f)));
+        StartCoroutine(WaitRandomTime(Random.Range(0.5f, 2f)));
     }
 }
