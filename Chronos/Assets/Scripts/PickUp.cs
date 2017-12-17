@@ -27,7 +27,7 @@ public class PickUp : MonoBehaviour
             this.GetComponent<Renderer>().enabled = false;
 
             print("pickup and disable");
-            StartCoroutine(WaitTime(Random.Range(1, 5)));
+            StartCoroutine(WaitTime(Random.Range(30, 90)));
         }
     }
 
