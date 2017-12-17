@@ -1,0 +1,67 @@
+{
+    "format": {
+        "version": "1.0"
+    },
+    "shaders": {
+        "Main shader": {
+            "materials": {
+                "Material1": "//allegorithmic/ground_gravel.sbsar/Gravel",
+                "Material2": "//personal/paved_street.sbsar/Paved Street",
+                "Material3": "//shelf/rock_surface_rough.sbsar/Rock Surface Rough",
+                "Material4": "//personal/dune_sand.sbsar/Dune Sand"
+            },
+            "parameters": {
+                "Common Parameters": {
+                    "ao_intensity": 0.75,
+                    "emissive_intensity": 1,
+                    "height_force": 1,
+                    "horizonFade": 1.2999999523162842,
+                    "nbSamples": 16
+                },
+                "DebugChannel": 0,
+                "DebugMode": false,
+                "Material 1": {
+                    "normal_intensity1": 1,
+                    "u_coords1": 5
+                },
+                "Material 2": {
+                    "mask_normal_intensity1": 0,
+                    "mask_normal_offset1": 0.10000000149011612,
+                    "normal_intensity2": 1,
+                    "u_coords2": 5
+                },
+                "Material 3": {
+                    "mask_normal_intensity2": 0,
+                    "mask_normal_offset2": 0.10000000149011612,
+                    "normal_intensity3": 1,
+                    "u_coords3": 5
+                },
+                "Material 4": {
+                    "mask_normal_intensity3": 0,
+                    "mask_normal_offset3": 0.10000000149011612,
+                    "normal_intensity4": 1,
+                    "u_coords4": 5
+                },
+                "UseNormalFromMask": false
+            },
+            "shader": "pbr-material-layering",
+            "shaderInstance": "Main shader"
+        }
+    },
+    "texturesets": {
+        "DefaultMaterial": {
+            "shader": "Main shader",
+            "stacks": {
+                "Mask": {
+                    "Blending mask": "DefaultMaterial_Mask_Blending_mask.png"
+                },
+                "Mask2": {
+                    "Blending mask": "DefaultMaterial_Mask2_Blending_mask.png"
+                },
+                "Mask3": {
+                    "Blending mask": "DefaultMaterial_Mask3_Blending_mask.png"
+                }
+            }
+        }
+    }
+}
