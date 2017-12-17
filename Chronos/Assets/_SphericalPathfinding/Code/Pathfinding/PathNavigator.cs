@@ -28,7 +28,10 @@ public class PathNavigator : MonoBehaviour
 	void Awake()
 	{
 		planetBody = GetComponent<PlanetBody>();
-	}
+
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+        sphericalGrid = GameObject.Find("PathFinding").GetComponent<SphericalGrid>();
+    }
 
 	void Update()
 	{

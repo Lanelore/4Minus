@@ -28,11 +28,8 @@ public class CrystalBehaviour : MonoBehaviour {
     
     public void CheckEnemy(Collider other)
     {
-        print("Detect Collider " + other.tag);
-
         if (other.tag == "Enemy")
         {
-            print("Detect Enemy");
             // spawn explosion
             GameObject createdDummy = GameObject.Instantiate(explosion, this.transform.position, this.transform.rotation) as GameObject;
             Destroy(createdDummy, 2);
