@@ -37,6 +37,7 @@ public class DieOnTouch : MonoBehaviour {
             alive = false;
             geo.SetActive(false);
             gameRunning = false;
+            RuebeAnimation.gameRunning = false;
             roundedTime = System.Math.Round(levelTime, 1);
             this.GetComponent<FirstPersonController>().enabled = false;
             StartCoroutine(WaitTime(1));           

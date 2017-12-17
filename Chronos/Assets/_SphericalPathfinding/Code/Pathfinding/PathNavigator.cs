@@ -8,8 +8,6 @@ public class PathNavigator : MonoBehaviour
     GameObject player;
 	public Transform target;
     Vector3 targetPosition;
-
-
     Vector3 prevTargetPos;
 
 	public float moveSpeed = 2;
