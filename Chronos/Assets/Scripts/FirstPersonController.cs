@@ -1,7 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
-using System.Collections.Generic;
 
 public class FirstPersonController : MonoBehaviour {
     public float triggerRange;
@@ -11,6 +9,7 @@ public class FirstPersonController : MonoBehaviour {
     public float mouseSensitivityX = 250;
 	public float mouseSensitivityY = 250;
 	public float walkSpeed = 6; //movement/walking speed
+    bool escapeGame = false;
 	
 	// General Audio
 	private AudioSource walk;
@@ -21,6 +20,7 @@ public class FirstPersonController : MonoBehaviour {
 	float verticalLookRotation;
 	
 	void Start() { //Awake
+        escapeGame = false;
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
         var audioSources = GetComponents<AudioSource>();
@@ -44,9 +44,6 @@ public class FirstPersonController : MonoBehaviour {
     }
 
 	void Update() {
-        if (Input.GetKey("escape"))
-            Application.Quit();
-
         // play the walking sound if player walked enough
         if (Input.GetAxisRaw("Vertical")!= 0 || Input.GetAxisRaw("Horizontal")!= 0) {
 			if (walk.isPlaying == false) {
@@ -75,7 +72,7 @@ public class FirstPersonController : MonoBehaviour {
 		// Apply movement to rigidbody
 		Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime; //transform to local space (instead of world space - move on the surface of the sphere)
 		GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + localMove);
-	}
+    }
 
     public void ChangeMouseSensitivity(float sensitivity)
     {
