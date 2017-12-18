@@ -23,7 +23,7 @@ public class StartLevel : MonoBehaviour {
             loadGame = true;
         }
 
-        if (Input.GetKey("escape"))
+        if (Input.GetButtonDown("Escape") && SceneManager.GetActiveScene().buildIndex == 0)
         {
             escapeGame = true;
         }

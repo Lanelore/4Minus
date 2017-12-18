@@ -44,24 +44,53 @@ public class FirstPersonController : MonoBehaviour {
     }
 
 	void Update() {
-        // play the walking sound if player walked enough
-        if (Input.GetAxisRaw("Vertical")!= 0 || Input.GetAxisRaw("Horizontal")!= 0) {
-			if (walk.isPlaying == false) {
-				//this.walk.Play ();
-			}
-		} else {
-			//this.walk.Stop ();
-		}
-
         // set dampig dependend if grounded or not
         float damping = 1;
-		// Look rotation:
-		transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime);
+        // Look rotation:
+        float rotationInput = Input.GetAxis("Controller X");
+        if (rotationInput != 0.0f)
+        {
+            if (rotationInput < 0.2 && rotationInput > -0.2)
+            {
+                rotationInput = 0;
+            }
+        } else
+        {
+            rotationInput = Input.GetAxis("Mouse X");
+        }
+        
+        transform.Rotate(Vector3.up * rotationInput * mouseSensitivityX * Time.deltaTime);
 		
 		// Calculate movement:
 		float inputX = Input.GetAxisRaw("Horizontal");
 		float inputY = Input.GetAxisRaw("Vertical");
-		
+
+        if (inputX > 0.5)
+        {
+            inputX = 1;
+        }
+        else if (inputX < -0.5)
+        {
+            inputX = -1;
+        }
+        else
+        {
+            inputX = 0;
+        }
+
+        if (inputY > 0.5)
+        {
+            inputY = 1;
+        }
+        else if (inputY < -0.5)
+        {
+            inputY = -1;
+        }
+        else
+        {
+            inputY = 0;
+        }
+        		
 		Vector3 moveDir = new Vector3(inputX, 0, inputY).normalized;
 		Vector3 targetMoveAmount = moveDir * walkSpeed;
 		
@@ -73,13 +102,7 @@ public class FirstPersonController : MonoBehaviour {
 		Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime; //transform to local space (instead of world space - move on the surface of the sphere)
 		GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + localMove);
     }
-
-    public void ChangeMouseSensitivity(float sensitivity)
-    {
-        mouseSensitivityX = sensitivity;
-        mouseSensitivityY = sensitivity;
-    }
-
+    
     IEnumerator WaitTime(float time)
     {
         float currentTime = 0.0f;

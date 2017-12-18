@@ -13,9 +13,8 @@ public class Respawn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey("escape"))
+        if (Input.GetButtonDown("Escape"))
         {
-            print("escape now");
             escapeGame = true;
         }
     }
@@ -25,7 +24,6 @@ public class Respawn : MonoBehaviour {
         if (escapeGame)
         {
             escapeGame = false;
-            print("load start scene");
             SceneManager.LoadScene(0);
         }
     }
